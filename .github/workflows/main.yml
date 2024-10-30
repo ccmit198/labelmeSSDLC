@@ -30,4 +30,3 @@ jobs:
       run: |
         curl -X POST https://api.mergebase.com/api/v1/scan \
         -H "Authorization: Bearer $MERGEBASE_API_KEY" \
-        -F "file=@requirements.txt"
