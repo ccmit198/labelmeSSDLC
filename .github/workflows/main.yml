@@ -27,6 +27,6 @@ jobs:
     - name: Trigger MergeBase Scan
       id: mergebase_scan
       run: |
-        response=$(curl -v -X GET https://app.mergebase.com/cdAkCZmB7/api/n/scans \
-        -H "Authorization: Bearer ${{ secrets.MERGEBASE_API_TOKEN }}")
+       response=$(curl -v -X GET https://app.mergebase.com/cdAkCZmB7/api/n/scans \
+        -H "Authorization: Bearer 9gzP5axRzagLgSeojZegP0ZZTexVQORXw")
         echo "Scan response: $response"
