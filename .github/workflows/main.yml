@@ -26,8 +26,8 @@ jobs:
 
     - name: Run Mergebase scan
       env:
-        MERGEBASE_API_KEY: ${{ secrets.2yoS2mwBZMQu_OPY0GUvIkIVhmD2qlz6g }}
+        MERGEBASE_API_KEY: ${{ secrets.MERGEBASE_API_KEY }}
       run: |
         curl -X POST https://api.mergebase.com/api/v1/scan \
-        -H "Authorization: Bearer $2yoS2mwBZMQu_OPY0GUvIkIVhmD2qlz6g" \
+        -H "Authorization: Bearer $MERGEBASE_API_KEY" \
         -F "file=@requirements.txt"
