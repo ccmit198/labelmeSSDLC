@@ -1,0 +1,33 @@
+name: Mergebase SCA Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # 替換為你專案的 Python 版本
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # 安裝 Python 依賴
+
+    - name: Run Mergebase scan
+      env:
+        MERGEBASE_API_KEY: ${{ secrets.MERGEBASE_API_KEY }}
+      run: |
+        curl -X POST https://api.mergebase.com/api/v1/scan \
+        -H "Authorization: Bearer $MERGEBASE_API_KEY" \
+        -F "file=@requirements.txt"
