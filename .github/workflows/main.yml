@@ -25,6 +25,9 @@ jobs:
         pip install -r requirements.txt  # 安裝 Python 依賴
 
 
-    - name: MergeBase
-      uses: mergebase/mergebase-scan-action@1.0.4
-            
+    - name: MergeBase Scan
+      uses: mergebase/mergebase-scan-action@v1
+      with:
+        mb_token: ${{ secrets.MERGEBASE_TOKEN }}
+        project_name: SSDLC github-action report  # 替换为你的项目名称
+        mb_url: https://app.mergebase.com/cdAkCZmB7/api/n/scans # 替换为你的 MergeBase 组织 URL，例如：https://app.mergebase.com/my-organization
