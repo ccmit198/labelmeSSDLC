@@ -32,6 +32,6 @@ jobs:
       env:
         MERGEBASE_API_KEY: ${{ secrets.MERGEBASE_API_KEY }}
       run: |
-        curl -X POST https://api.mergebase.com/api/v1/scan \
+        curl -X POST https://app.mergebase.com/cdAkCZmB7/api/n/scans \
         -H "Authorization: Bearer $MERGEBASE_API_KEY" \
         -F "file=@project.zip"  # 指定整個專案的壓縮文件
