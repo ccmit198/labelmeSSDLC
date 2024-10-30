@@ -26,7 +26,7 @@ jobs:
 
 
     - name: MergeBase Scan
-      uses: mergebase/mergebase-scan-action@v1
+      uses: mergebase/mergebase-scan-action@1.0.4
       with:
         mb_token: ${{ secrets.MERGEBASE_TOKEN }}
         project_name: SSDLC github-action report  # 替换为你的项目名称
