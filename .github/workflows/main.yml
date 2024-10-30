@@ -27,4 +27,4 @@ jobs:
     - name: MergeBase
       run: |
         curl -X GET https://app.mergebase.com/cdAkCZmB7/api/n/scans \
-        -H "Authorization: Bearer 9gzP5axRzagLgSeojZegP0ZZTexVQORXw  # 替換 YOUR_API_TOKEN
+        -H "Authorization: Bearer ${{ secrets.MERGEBASE_API_TOKEN }}"  # 使用 GitHub Secrets
