@@ -24,7 +24,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt  # 安裝 Python 依賴
 
-    - name: MergeBase
+    - name: Trigger MergeBase Scan
+      id: mergebase_scan
       run: |
-        curl -X GET https://app.mergebase.com/cdAkCZmB7/api/n/scans \
-        -H "Authorization: Bearer ${{ secrets.MERGEBASE_API_TOKEN }}"  # 使用 GitHub Secrets
+        response=$(curl -X GET https://app.mergebase.com/cdAkCZmB7/api/n/scans \
+        -H "Authorization: Bearer ${{ secrets.MERGEBASE_API_TOKEN }}")
+        echo "Scan response: $response"
+
+    - name: Get MergeBase Scan Report
+      run: |
+        # 假設 API 返回的 JSON 直接包含報告
+        report=$(echo $response | jq -r '.report')  # 根據實際返回的 JSON 結構調整
+        echo "Scan Report: $report"
